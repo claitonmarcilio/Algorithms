@@ -1,4 +1,4 @@
-package com.claitonmarcilio.algorithms.counters;
+package com.claitonmarcilio.algorithms.lessons;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.claitonmarcilio.algorithms.counters;
+package com.claitonmarcilio.algorithms.lessons;
 
 public class MaxCounters {
 
