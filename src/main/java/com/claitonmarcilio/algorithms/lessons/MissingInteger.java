@@ -25,4 +25,27 @@ public class MissingInteger {
         }
         return min;
     }
+
+    /**
+     * Find a missing element on a permutation
+     *
+     * @param values
+     * @return
+     */
+    public int findMissingOnPermutation(int[] values) {
+        return (int) (getExpectedSum(values) - getCurrentSum(values));
+    }
+
+    private long getCurrentSum(int[] values) {
+        long currentSum = 0;
+        for (int i : values) {
+            currentSum += i;
+        }
+        return currentSum;
+    }
+
+    private long getExpectedSum(int[] values) {
+        int expectedSize = values.length + 1;
+        return (long) expectedSize * ((long) expectedSize + 1) / 2;
+    }
 }

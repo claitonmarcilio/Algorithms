@@ -2,7 +2,7 @@ package com.claitonmarcilio.algorithms.lessons;
 
 import java.util.Arrays;
 
-public class PositionsInTime {
+public class Positions {
 
     /**
      * Returns the earliest time that all positions are filled to a final position
@@ -36,5 +36,9 @@ public class PositionsInTime {
         }
 
         return minTime;
+    }
+
+    public int numberOfStepsToTarget(int initialPosition, int target, int stepSize) {
+        return (int) Math.ceil(((double) target - (double) initialPosition) / stepSize);
     }
 }

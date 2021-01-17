@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PositionsInTimeTest {
+class PositionsTest {
 
-    private PositionsInTime evaluator = new PositionsInTime();
+    private Positions positions = new Positions();
 
     @Test
     void findEarliestTimeForPositionTest() {
         int[] positionsInTime = new int[]{1, 3, 1, 4, 2, 3, 5, 4};
 
-        int minTime = evaluator.findEarliestTimeForPositions(5, positionsInTime);
+        int minTime = positions.findEarliestTimeForPositions(5, positionsInTime);
 
         assertEquals(6, minTime);
     }
@@ -21,9 +21,14 @@ class PositionsInTimeTest {
     void unreachablePositionTest() {
         int[] positionsInTime = new int[]{1, 3, 1, 4, 2, 3, 5, 4};
 
-        int minTime = evaluator.findEarliestTimeForPositions(6, positionsInTime);
+        int minTime = positions.findEarliestTimeForPositions(6, positionsInTime);
 
         assertEquals(-1, minTime);
+    }
+
+    @Test
+    void numberOfStepsToTargetTest() {
+        assertEquals(3, positions.numberOfStepsToTarget(10, 85, 30));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.claitonmarcilio.algorithms.lessons;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,12 +14,19 @@ class MissingIntegerTest {
     private final MissingInteger missingInteger = new MissingInteger();
 
     @ParameterizedTest
-    @MethodSource("provideTestCases")
+    @MethodSource("missingIntegerTestCases")
     void runTests(int[] values, int expected) {
         assertEquals(expected, this.missingInteger.findMissingInteger(values));
     }
 
-    private static Stream<Arguments> provideTestCases() {
+    @Test
+    void findMissingOnPermutationTest() {
+        int[] values = new int[]{2, 3, 1, 5};
+        int missingElement = missingInteger.findMissingOnPermutation(values);
+        assertEquals(4, missingElement);
+    }
+
+    private static Stream<Arguments> missingIntegerTestCases() {
         return Stream.of(
                 simpleValues(),
                 afterAllValues(),
