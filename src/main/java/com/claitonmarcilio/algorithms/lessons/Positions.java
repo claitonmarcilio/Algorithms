@@ -7,9 +7,9 @@ public class Positions {
     /**
      * Returns the earliest time that all positions are filled to a final position
      *
-     * @param finalPosition
-     * @param positionsInTime
-     * @return
+     * @param finalPosition   position to be reached
+     * @param positionsInTime array of values representing positions in time
+     * @return the earliest time that all positions are filled
      */
     public int findEarliestTimeForPositions(int finalPosition, int[] positionsInTime) {
         int[] positions = new int[finalPosition];
@@ -25,12 +25,12 @@ public class Positions {
         }
 
         int minTime = 0;
-        for (int i = 0; i < positions.length; i++) {
-            if (positions[i] == -1) {
+        for (int position : positions) {
+            if (position == -1) {
                 return -1;
             }
-            if (positions[i] > minTime) {
-                minTime = positions[i];
+            if (position > minTime) {
+                minTime = position;
             }
 
         }
@@ -38,6 +38,14 @@ public class Positions {
         return minTime;
     }
 
+    /**
+     * Calculates the number of steps necessary to reach a target
+     *
+     * @param initialPosition the initial position
+     * @param target          the final position
+     * @param stepSize        the step size
+     * @return the number of steps
+     */
     public int numberOfStepsToTarget(int initialPosition, int target, int stepSize) {
         return (int) Math.ceil(((double) target - (double) initialPosition) / stepSize);
     }

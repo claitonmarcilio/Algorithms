@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayEquilibriumTest {
 
-    private ArrayEquilibrium arrayEquilibrium = new ArrayEquilibrium();
+    private final ArrayEquilibrium arrayEquilibrium = new ArrayEquilibrium();
 
     @Test
     void findMinDiffOnSplitTest() {

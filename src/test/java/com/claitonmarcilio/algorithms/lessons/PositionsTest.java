@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PositionsTest {
 
-    private Positions positions = new Positions();
+    private final Positions positions = new Positions();
 
     @Test
     void findEarliestTimeForPositionTest() {

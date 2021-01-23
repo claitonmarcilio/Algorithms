@@ -3,17 +3,17 @@ package com.claitonmarcilio.algorithms.lessons;
 public class MaxCounters {
 
     /**
-     *  Evaluate two possible operations to an array of int values:
-     *  - increase counter by 1, if value is less than or equal to "numberOfCounters" param
-     *  - set all counters to maximum value of counters, if value is equal to "numberOfCounters" param + 1
+     * Evaluate two possible operations to an array of int values:
+     * - increase counter by 1, if value is less than or equal to "numberOfCounters" param
+     * - set all counters to maximum value of counters, if value is equal to "numberOfCounters" param + 1
      *
-     * @param numberOfCounters
-     * @param inputValues
-     * @return
+     * @param numberOfCounters number of counters
+     * @param inputValues      values representing the occurrence of values to be counted
+     * @return the array of counters
      */
     public int[] evaluateCounters(int numberOfCounters, int[] inputValues) {
         final int setMaxOperation = numberOfCounters + 1;
-        int [] counters = new int [numberOfCounters];
+        int[] counters = new int[numberOfCounters];
         int currentMax = 0;
         int max = 0;
         for (int inputValue : inputValues) {

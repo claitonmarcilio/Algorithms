@@ -13,17 +13,17 @@ class MissingIntegerTest {
 
     private final MissingInteger missingInteger = new MissingInteger();
 
-    @ParameterizedTest
-    @MethodSource("missingIntegerTestCases")
-    void runTests(int[] values, int expected) {
-        assertEquals(expected, this.missingInteger.findMissingInteger(values));
-    }
-
     @Test
     void findMissingOnPermutationTest() {
         int[] values = new int[]{2, 3, 1, 5};
         int missingElement = missingInteger.findMissingOnPermutation(values);
         assertEquals(4, missingElement);
+    }
+
+    @ParameterizedTest
+    @MethodSource("missingIntegerTestCases")
+    void runTests(int[] values, int expected) {
+        assertEquals(expected, this.missingInteger.findMissingInteger(values));
     }
 
     private static Stream<Arguments> missingIntegerTestCases() {

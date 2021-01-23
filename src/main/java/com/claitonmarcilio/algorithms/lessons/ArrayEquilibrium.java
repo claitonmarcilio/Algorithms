@@ -5,8 +5,8 @@ public class ArrayEquilibrium {
     /**
      * Returns the minimal difference that can be achieved splitting an array in two parts
      *
-     * @param values
-     * @return
+     * @param values Array of values
+     * @return the minimal difference that can be achieved
      */
     public int findMinDiffOnSplit(int[] values) {
         long sum = getSum(values);
