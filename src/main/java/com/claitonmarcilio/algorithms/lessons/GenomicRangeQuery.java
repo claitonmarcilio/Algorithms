@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 public class GenomicRangeQuery {
 
+    public static final int NUMBER_OF_NUCLEOTIDES = 4;
+
     public int[] query(String dnaSequence, int[] initialIndexes, int[] finalIndexes) {
         final int[][] dnaCounters = getDnaValues(dnaSequence);
 
         final int indexSize = initialIndexes.length;
         final int[] result = new int[indexSize];
-        final int[] empty = new int[4];
+        final int[] empty = new int[NUMBER_OF_NUCLEOTIDES];
 
         for (int i = 0; i < initialIndexes.length; i++) {
             int initialIndex = initialIndexes[i];
@@ -26,16 +28,16 @@ public class GenomicRangeQuery {
     }
 
     private int getMin(int[] initialCounter, int[] finalCounter) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < NUMBER_OF_NUCLEOTIDES; i++) {
             if (initialCounter[i] < finalCounter[i]) {
                 return i + 1;
             }
         }
-        return 0;
+        throw new IllegalStateException("Counters state is invalid.");
     }
 
     private int[][] getDnaValues(String dnaSequence) {
-        final int[][] dnaCounters = new int[dnaSequence.length()][4];
+        final int[][] dnaCounters = new int[dnaSequence.length()][NUMBER_OF_NUCLEOTIDES];
         char[] dnaArray = dnaSequence.toCharArray();
         for (int i = 0; i < dnaArray.length; i++) {
             final char nucleotide = dnaArray[i];
@@ -43,7 +45,7 @@ public class GenomicRangeQuery {
             if (i == 0) {
                 dnaCounters[i][dnaValue - 1] = 1;
             } else {
-                dnaCounters[i] = Arrays.copyOf(dnaCounters[i - 1], 4);
+                dnaCounters[i] = Arrays.copyOf(dnaCounters[i - 1], NUMBER_OF_NUCLEOTIDES);
                 dnaCounters[i][dnaValue - 1] = dnaCounters[i - 1][dnaValue - 1] + 1;
             }
         }
@@ -61,6 +63,6 @@ public class GenomicRangeQuery {
             case 'T':
                 return 4;
         }
-        return 0;
+        throw new IllegalArgumentException("Invalid nucleotide: " + nucleotide);
     }
 }

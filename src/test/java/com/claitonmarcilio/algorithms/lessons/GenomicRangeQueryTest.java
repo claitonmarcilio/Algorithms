@@ -17,4 +17,24 @@ public class GenomicRangeQueryTest {
 
         Assertions.assertArrayEquals(new int[]{2, 4, 1}, result);
     }
+
+    @Test
+    void throwsExceptionWhenInvalidNucleotide() {
+        final String dnaSequence = "F";
+        final int[] initialIndexes = new int[]{0};
+        final int[] finalIndexes = new int[]{0};
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> genomicRangeQuery.query(dnaSequence, initialIndexes, finalIndexes));
+    }
+
+    @Test
+    void throwsExceptionWhenCounterStateIsInvalid() {
+        final String dnaSequence = "CAGCCTA";
+        final int[] initialIndexes = new int[]{6};
+        final int[] finalIndexes = new int[]{0};
+
+        Assertions.assertThrows(IllegalStateException.class,
+                () -> genomicRangeQuery.query(dnaSequence, initialIndexes, finalIndexes));
+    }
 }
