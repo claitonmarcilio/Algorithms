@@ -3,7 +3,7 @@ package com.claitonmarcilio.algorithms.lessons;
 public class MinAvgTwoSlice {
 
     /**
-     * Splits the array in slices of 2 and 3 elements and find the initial index of slice with smaller average
+     * Splits an array in slices of 2 and 3 elements and find the initial index of slice with smaller average
      *
      * @param inputArray array of int values
      * @return initial index of slice with smaller average
